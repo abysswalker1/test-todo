@@ -1,0 +1,30 @@
+.todo-item {
+  width: 100%;
+  padding: 15px 10px;
+  background-color: #fff;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &__wrap {
+    display: flex;
+    align-items: center;
+  }
+  &__completed {
+    margin-right: 5px;
+  }
+  &__btn {
+    border: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(246, 13, 62, 0.7);
+    border-radius: 2px;
+    background: none;
+    &:hover {
+      background-color: rgba(246, 13, 62, 0.7);
+    }
+    &:active {
+      background-color: transparent;
+    }
+  }
+}
