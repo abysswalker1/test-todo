@@ -1,14 +1,27 @@
 import React from 'react';
 import './form.scss'
+import {observer} from 'mobx-react-lite'
+import TitleObserver from '../store/TitileObserver'
+import TodoObserver from '../store/TodoObserver';
 
-const Form = () => {
+
+const Form = observer(() => {
 
   const submitHandler = (event: React.FormEvent) => {
     event.preventDefault();
   } 
 
-  const changeHandler = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    console.log(event.target)
+  // const changeHandler = (event: React.KeyboardEvent<HTMLInputElement>) => {
+  //   TitleObserver.storeInputValue(3)
+  // }
+
+  const addNewTodo = () => {
+    TodoObserver.addTodo({
+      userId: 1,
+      id : TodoObserver.todos.length + 1,
+      title: 'jopa',
+      completed: false,
+  })
   }
 
   return (
@@ -17,7 +30,8 @@ const Form = () => {
       <div className="form__input-wrap">
         <input type="text" className="form__input"/>
       </div>
-      <button className="form__btn btn-accept">
+      <button className="form__btn btn-accept" 
+              onClick={addNewTodo}>
         Создать
       </button>
       <button className="form__btn btn-delite">
@@ -25,6 +39,6 @@ const Form = () => {
       </button>
     </form>
   );
-};
+});
 
 export default Form;

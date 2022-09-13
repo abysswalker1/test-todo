@@ -1,16 +1,17 @@
 import React from 'react';
 import './todoList.scss';
-import { todos } from '../data/data'
 import TodoItem from './TodoItem'
+import {observer} from 'mobx-react-lite'
+import TodoObserver from '../store/TodoObserver';
 
-const TodoList = () => {
+const TodoList = observer(() => {
   return (
     <div className="todo-list">
-      {todos.map((todo, index) => {
-        return <TodoItem todo={todo} key={index}/>
+      {TodoObserver.todos.map((todo, index) => {
+        return <TodoItem todo={todo} id={index} key={index}/>
       })}
     </div>
   );
-};
+});
 
 export default TodoList;
