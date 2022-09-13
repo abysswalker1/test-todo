@@ -22,7 +22,7 @@ const TodoItem = ({todo}: TodoProps) => {
         </span>  
       </label>
       <button className="todo-item__btn" type="button">
-
+        &times;
       </button>
     </div>
   );
