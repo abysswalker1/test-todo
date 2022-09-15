@@ -1,14 +1,15 @@
 import React from 'react';
 import './form.scss'
 import {observer} from 'mobx-react-lite'
-import TitleObserver from '../store/TitileObserver'
-import TodoObserver from '../store/TodoObserver';
+import TodoState from '../store/TodoState';
+import {Todo} from '../models'  
 
 
 const Form = observer(() => {
 
   const submitHandler = (event: React.FormEvent) => {
     event.preventDefault();
+
   } 
 
   // const changeHandler = (event: React.KeyboardEvent<HTMLInputElement>) => {
@@ -16,12 +17,12 @@ const Form = observer(() => {
   // }
 
   const addNewTodo = () => {
-    TodoObserver.addTodo({
-      userId: 1,
-      id : TodoObserver.todos.length + 1,
-      title: 'jopa',
-      completed: false,
-  })
+    TodoState.addTodo({
+      userId : 1,
+      id: 0,
+      title: 'zarobotalo',
+      completed: false
+    })
   }
 
   return (
