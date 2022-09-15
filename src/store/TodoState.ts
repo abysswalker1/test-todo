@@ -1,5 +1,6 @@
 import { makeAutoObservable } from "mobx";
-import {Todo} from '../models'
+import {Todo} from '../types'
+import FormState from "./FormState";
 
 class TodoState {
   todos : Todo[] = []
@@ -16,6 +17,7 @@ class TodoState {
 
   addTodo(item: Todo) {
     item.id = this.getId()
+    item.title = FormState.title
     this.todos.push(item)
   }
 
