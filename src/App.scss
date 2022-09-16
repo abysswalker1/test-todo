@@ -33,6 +33,9 @@
   &__filter {
     position: absolute;
     bottom: -40px;
+    width: 100%;
+    max-width: 400px;
+    transition: max-width 250ms ease;
   }
 }
 

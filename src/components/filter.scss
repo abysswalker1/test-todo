@@ -1,4 +1,20 @@
+@import '../scss/mixins.scss';
+
 .filter {
   display: flex;
+  justify-content: center;
   gap: 10px;
+  width: 100%;
+  button {
+    font-size: 15px;
+    background: #fff;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 15px;
+    flex: 2;
+    &#filter-all {
+      flex: 1;
+    }
+  }
 }

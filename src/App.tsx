@@ -3,7 +3,6 @@ import Form from './components/Form';
 import Filter from './components/Filter';
 import './App.scss';
 
-
 function App() {
   return (
     <div className="app-wrap">

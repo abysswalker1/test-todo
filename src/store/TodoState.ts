@@ -2,29 +2,28 @@ import { makeAutoObservable, computed } from 'mobx';
 import { Todo } from '../types';
 
 class TodoState {
-
   todos: Todo[] = [];
-  current_filter : string = 'all'
+  current_filter: string = 'all';
+
+  get renderedTodos() {
+    if (this.current_filter === 'completed') {
+      return this.todos.filter((t) => t.completed);
+    } else if (this.current_filter === 'not-completed') {
+      return this.todos.filter((t) => !t.completed);
+    }
+    return this.todos;
+  }
 
   constructor() {
-    makeAutoObservable(this, { 
-      renderedTodos : computed
+    makeAutoObservable(this, {
+      renderedTodos: computed,
     });
   }
 
   private _counter = 0;
 
-  private getId() { 
+  private getId() {
     return ++this._counter;
-  }
-
-  get renderedTodos() {
-    if (this.current_filter === 'completed') {
-      return this.todos.filter(t => t.completed);
-    } else if (this.current_filter === 'not-completed'){
-      return this.todos.filter(t => !t.completed);
-    }
-    return this.todos
   }
 
   addTodo(item: Todo) {
@@ -33,7 +32,7 @@ class TodoState {
   }
 
   removeTodo(id: number) {
-    this.todos = this.todos.filter((t) => t.id != id);
+    this.todos = this.todos.filter((t) => t.id !== id);
   }
 
   completed(item: Todo) {
@@ -42,7 +41,6 @@ class TodoState {
 
   getCurrentFilter(filter: string) {
     this.current_filter = filter;
-    console.log(this.renderedTodos)
   }
 }
 
