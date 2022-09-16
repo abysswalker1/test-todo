@@ -1,10 +1,7 @@
 export interface Todo {
   userId: any,
-  id: any,
+  id: number,
   title: string,
   completed: boolean,
 }
 
-export interface Context {
-  
-}

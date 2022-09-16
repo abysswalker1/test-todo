@@ -5,10 +5,11 @@
   border-radius: 5px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   &__wrap {
     display: flex;
     align-items: center;
+    max-width: 100%;
   }
   &__completed {
     margin-right: 5px;

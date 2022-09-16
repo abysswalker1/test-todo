@@ -21,7 +21,7 @@ const Form = observer(() => {
     TodoState.addTodo({
       userId : 1,
       id: 0,
-      title: '',
+      title: FormState.title,
       completed: false
     })
   }

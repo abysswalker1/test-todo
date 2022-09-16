@@ -1,3 +1,6 @@
+@import './scss/mixins.scss';
+@import './scss/fonts.scss';
+
 .app-wrap {
   background-color: rgba(252, 152, 252, 0.5);
   min-height: 100vh;
@@ -12,14 +15,24 @@
   max-width: 700px;
   margin: 0 auto;
   padding: 10px;
+  position: relative;
+  &__title {
+    margin-bottom: 30px;
+    @include regular();
+  }
   &__form {
-    max-width: 100%;
+    width: 100%;
+    max-width: 400px;
     display: flex;
     justify-content: center;  
     margin-bottom: 20px;
   }
   &__todo-list {
     width: 100%;
+  }
+  &__filter {
+    position: absolute;
+    bottom: -40px;
   }
 }
 
