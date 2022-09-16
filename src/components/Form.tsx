@@ -10,6 +10,9 @@ const Form = observer(() => {
     event.preventDefault();
     if (FormState.title.trim()) {
       addNewTodo();
+
+      //Сброс фильтра завершенных TODO
+      TodoState.getCurrentFilter('all');
     }
   };
 
@@ -32,18 +35,21 @@ const Form = observer(() => {
     <form className="form" onSubmit={submitHandler}>
       {/* Заголовок */}
       <h3 className="form__title">Create your TODO</h3>
+      {/* Инпут */}
       <div className="form__input-wrap">
         <input type="text" className="form__input" onChange={changeHandler} />
       </div>
+      {/* Кнопка создания TODO*/}
       <button className="form__btn btn-accept" type="submit">
         Создать
       </button>
+      {/* Кнопка стереть текст */}
       <button
         className="form__btn btn-delite"
         type="reset"
         onClick={() => FormState.clear()}
         style={FormState.title ? { display: 'inline-block' } : { display: 'none' }}>
-        Убрать &times;
+        Стереть &times;
       </button>
     </form>
   );

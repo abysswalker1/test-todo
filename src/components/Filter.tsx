@@ -17,18 +17,21 @@ const Filter = observer(() => {
 
   return (
     <div className="filter">
+      {/* Показывает завершенные TODO */}
       <button
         id="filter-completed"
         onClick={() => TodoState.getCurrentFilter('completed')}
         style={TodoState.current_filter === 'completed' ? styles.active : {}}>
         Завершенные
       </button>
+      {/* Показывает незавершенные TODO */}
       <button
         id="filter-not-completed"
         onClick={() => TodoState.getCurrentFilter('not-completed')}
         style={TodoState.current_filter === 'not-completed' ? styles.active : {}}>
         Незавершенные
       </button>
+      {/* Сброс фильтра */}
       <button
         id="filter-all"
         onClick={() => TodoState.getCurrentFilter('all')}

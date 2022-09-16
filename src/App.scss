@@ -1,9 +1,8 @@
-@import './scss/mixins.scss';
-@import './scss/fonts.scss';
-
 .app-wrap {
   background-color: rgba(252, 152, 252, 0.5);
   min-height: 100vh;
+  padding-bottom: 40px;
+  position: relative;
 }
 
 .app {
@@ -15,10 +14,8 @@
   max-width: 700px;
   margin: 0 auto;
   padding: 10px;
-  position: relative;
   &__title {
     margin-bottom: 30px;
-    @include regular();
   }
   &__form {
     width: 100%;
@@ -31,13 +28,44 @@
     width: 100%;
   }
   &__filter {
-    position: absolute;
-    bottom: -40px;
+    margin-top: 50px;
     width: 100%;
     max-width: 400px;
-    transition: max-width 250ms ease;
   }
 }
 
+
+@media screen and (max-width: 500px){
+  .app {
+    max-width: calc(100% + 20px);
+  }
+}
+
+@media screen and (max-width: 360px){
+  .app-wrap {
+    display: flex;
+    align-items: flex-start;
+  }
+  .app {
+    max-width: calc(100%);
+    margin: 0;
+    flex: 1;
+    &__filter {
+      max-width: calc(100% + 20px);
+      width: calc(100% + 20px);
+      position: sticky;
+      bottom: 0;
+      left: 0;
+    }
+  }
+}
+
+@media screen and (max-width: 290px){
+  .app {
+    &__filter {
+      max-width: 100%;
+    }
+  }
+}
 
 

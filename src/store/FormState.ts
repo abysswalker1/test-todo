@@ -1,17 +1,19 @@
 import { makeAutoObservable } from 'mobx';
 
 class FormState {
+  //Состояние с текстом введенным в input
   title: string = '';
 
-  constructor() {
+  public constructor() {
     makeAutoObservable(this);
   }
 
-  onchange(text: string) {
+  //Метод следит когда event.target.value меняется и записывет его в состояние
+  public onchange(text: string) {
     this.title = text;
   }
 
-  clear() {
+  public clear() {
     this.title = '';
   }
 }
