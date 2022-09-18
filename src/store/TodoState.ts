@@ -1,20 +1,15 @@
 import { makeAutoObservable, computed } from 'mobx';
 import { Todo, CurrentFilter } from '../types';
- 
-class TodoState { 
 
-  //Массив со всеми TODO
-  todos: Todo[] = [];
+class TodoState {
+  public todos: Todo[] = [];
 
-  //Текущее состояние фильтра
-  current_filter: CurrentFilter = 'all';
+  public currentFilter: CurrentFilter = 'all';
 
-  // Вычисление тех TODO, 
-  // которые должны быть отрисованы, в соответствии с фильтром завершенныйх дел
   get renderedTodos() {
-    if (this.current_filter === 'completed') {
+    if (this.currentFilter === 'completed') {
       return this.todos.filter((t) => t.completed);
-    } else if (this.current_filter === 'not-completed') {
+    } else if (this.currentFilter === 'not-completed') {
       return this.todos.filter((t) => !t.completed);
     }
     return this.todos;
@@ -26,7 +21,6 @@ class TodoState {
     });
   }
 
-  //Счетчик для создания id компонентов
   private _counter = 0;
 
   private getId() {
@@ -46,9 +40,8 @@ class TodoState {
     item.completed = !item.completed;
   }
 
-  //Берет из компонента Filter его текущее состояние
-  public getCurrentFilter(filter: CurrentFilter) {
-    this.current_filter = filter;
+  public setCurrentFilter(filter: CurrentFilter) {
+    this.currentFilter = filter;
   }
 }
 
